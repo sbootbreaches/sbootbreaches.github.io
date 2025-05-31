@@ -1,0 +1,82 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "success": "Succès",
+    "copy": "Copier",
+    "data_error": "Échec de l'obtention des paramètres : Veuillez vous assurer d'exécuter la commande en tant qu'administrateur et vérifier si votre système démarre en mode UEFI"
+  },
+  "project": {
+    "description": "Ce projet fait partie de la recherche Black Hat USA 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'. Il vous aide à vérifier si votre système est affecté par les 31 vulnérabilités SecureBoot découvertes par Azure Yang et corrigées en 2024. L'outil collecte des données anonymes pour la présentation lors de la conférence finale Black Hat.",
+    "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
+    "briefing_text": "Voir le briefing Black Hat",
+    "vuln_list": {
+      "button": "Afficher les vulnérabilités affectées",
+      "title": "Vulnérabilités SecureBoot affectées",
+      "table": {
+        "cve": "ID CVE",
+        "description": "Description",
+        "score": "Score CVSS"
+      }
+    },
+    "research_details": "SecureBoot, conçu pour protéger contre les manipulations au niveau du firmware, a longtemps été considéré comme une surface d'attaque 'uniquement locale'. Cette recherche brise cette hypothèse, révélant des failles systémiques qui permettent l'exploitation à distance de SecureBoot, culminant en RCE pré-authentification sur des systèmes entièrement corrigés. Avec 31 CVE découverts et corrigés dans l'implémentation SecureBoot de Microsoft, nous révélons comment les attaquants peuvent exploiter les composants du chargeur de démarrage (piles réseau, registres BCD, systèmes de fichiers) pour contourner les garanties de sécurité critiques."
+  },
+  "platform": {
+    "select": "Sélectionnez votre système d'exploitation :",
+    "windows": "Windows",
+    "linux": "Linux"
+  },
+  "instructions": {
+    "windows": {
+      "title": "Instructions Windows",
+      "description": "Veuillez exécuter les commandes PowerShell suivantes en tant qu'administrateur :",
+      "paste": "Copiez la sortie et collez-la ci-dessous pour analyse :"
+    },
+    "linux": {
+      "title": "Instructions Linux",
+      "description": "Veuillez enregistrer le script suivant sous 'check_secureboot.py' et l'exécuter :",
+      "paste": "Copiez la sortie et collez-la ci-dessous pour analyse :"
+    }
+  },
+  "analysis": {
+    "placeholder": "Collez votre sortie ici...",
+    "button": "Analyser"
+  },
+  "results": {
+    "title": "Résultats de l'analyse",
+    "secure_boot": {
+      "enabled": "SecureBoot est activé",
+      "disabled": "SecureBoot est désactivé",
+      "enabled_desc": "Votre système a SecureBoot activé, ce qui aide à protéger contre les logiciels malveillants au niveau du démarrage.",
+      "disabled_desc": "Votre système n'a pas SecureBoot activé. Cela pourrait rendre votre système vulnérable aux attaques au niveau du démarrage."
+    },
+    "pca_cert": {
+      "detected": "Certificat Windows PCA 2023 détecté",
+      "not_detected": "Certificat Windows PCA 2023 non détecté",
+      "detected_desc": "Votre base de données de certificats de démarrage est à jour.",
+      "not_detected_desc": "KB5036210 : La mise à jour de la DB permettra aux appareils de recevoir les futures mises à jour du chargeur de démarrage incluses dans les mises à jour mensuelles. C'est important car le certificat existant expirera, et la migration vers le nouveau certificat est la première étape pour préparer les appareils à fonctionner avec les prochaines mises à jour du chargeur de démarrage qui seront signées cryptographiquement avec le nouveau certificat.",
+      "kb_link": "https://support.microsoft.com/help/5036210"
+    },
+    "vulnerability": {
+      "not_vulnerable": "Non vulnérable aux failles SecureBoot",
+      "not_vulnerable_desc": "Votre PC n'est pas affecté par les 31 vulnérabilités révélées dans cette recherche.",
+      "vulnerable": "Vulnérable aux failles SecureBoot",
+      "vulnerable_desc": "Votre PC est vulnérable aux 31 vulnérabilités révélées dans cette recherche.",
+      "vulnerable_guide": "Veuillez consulter KB5025885 : Comment gérer les révocations du gestionnaire de démarrage Windows pour les modifications de Secure Boot associées à CVE-2023-24932. Cet article décrit la protection contre ce contournement de la fonction de sécurité Secure Boot, comment activer les protections et les conseils pour mettre à jour les supports de démarrage.",
+      "kb_link": "https://support.microsoft.com/help/5025885",
+      "bootmgr_bypass": "Avertissement : La version de votre gestionnaire de démarrage Windows indique une vulnérabilité potentielle de contournement des fonctionnalités de sécurité",
+      "bypass_status": {
+        "vulnerable": "Avertissement : La version de votre gestionnaire de démarrage Windows indique une vulnérabilité potentielle de contournement des fonctionnalités de sécurité",
+        "protected": "Le SecureBoot de votre PC est pleinement fonctionnel et à jour"
+      }
+    }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "settings": "Paramètres"
+  },
+  "footer": {
+    "contact": "Contact"
+  }
+} 

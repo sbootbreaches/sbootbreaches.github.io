@@ -1,0 +1,82 @@
+{
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "success": "نجاح",
+    "copy": "نسخ",
+    "data_error": "فشل في الحصول على المعلمات: يرجى التأكد من تشغيل الأمر كمسؤول والتحقق من أن النظام يعمل في وضع UEFI"
+  },
+  "project": {
+    "description": "هذا المشروع هو جزء من بحث Black Hat USA 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'. يساعدك في التحقق مما إذا كان نظامك متأثراً بـ 31 ثغرة أمنية في SecureBoot تم اكتشافها بواسطة Azure Yang وإصلاحها في عام 2024. تجمع الأداة بيانات مجهولة للعرض في العرض النهائي لـ Black Hat.",
+    "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
+    "briefing_text": "عرض موجز Black Hat",
+    "vuln_list": {
+      "button": "عرض الثغرات الأمنية المتأثرة",
+      "title": "ثغرات SecureBoot المتأثرة",
+      "table": {
+        "cve": "معرف CVE",
+        "description": "الوصف",
+        "score": "درجة CVSS"
+      }
+    },
+    "research_details": "SecureBoot، المصمم للحماية من التلاعب على مستوى البرامج الثابتة، طالما اعتبر سطح هجوم 'محلي فقط'. يكسر هذا البحث هذا الافتراض، كاشفاً عن عيوب منهجية تجعل الاستغلال عن بعد لـ SecureBoot ممكناً - وصولاً إلى RCE قبل المصادقة على الأنظمة المحدثة بالكامل. مع 31 CVE تم اكتشافها وإصلاحها في تنفيذ Microsoft لـ SecureBoot، نكشف كيف يمكن للمهاجمين استغلال مكونات محمل الإقلاع (مكدسات الشبكة، سجلات BCD، أنظمة الملفات) لتجاوز ضمانات الأمان الحرجة."
+  },
+  "platform": {
+    "select": "اختر نظام التشغيل الخاص بك:",
+    "windows": "Windows",
+    "linux": "Linux"
+  },
+  "instructions": {
+    "windows": {
+      "title": "تعليمات Windows",
+      "description": "يرجى تشغيل أوامر PowerShell التالية كمسؤول:",
+      "paste": "انسخ المخرجات والصقها أدناه للتحليل:"
+    },
+    "linux": {
+      "title": "تعليمات Linux",
+      "description": "يرجى حفظ البرنامج النصي التالي كـ 'check_secureboot.py' وتشغيله:",
+      "paste": "انسخ المخرجات والصقها أدناه للتحليل:"
+    }
+  },
+  "analysis": {
+    "placeholder": "الصق المخرجات هنا...",
+    "button": "تحليل"
+  },
+  "results": {
+    "title": "نتائج التحليل",
+    "secure_boot": {
+      "enabled": "SecureBoot مفعل",
+      "disabled": "SecureBoot معطل",
+      "enabled_desc": "نظامك لديه SecureBoot مفعل، مما يساعد في الحماية من البرامج الضارة على مستوى التمهيد.",
+      "disabled_desc": "نظامك ليس لديه SecureBoot مفعل. قد يجعل هذا نظامك عرضة للهجمات على مستوى التمهيد."
+    },
+    "pca_cert": {
+      "detected": "تم اكتشاف شهادة Windows PCA 2023",
+      "not_detected": "لم يتم اكتشاف شهادة Windows PCA 2023",
+      "detected_desc": "قاعدة بيانات شهادات التمهيد الخاصة بك محدثة.",
+      "not_detected_desc": "KB5036210: سيسمح تحديث قاعدة البيانات للأجهزة بتلقي تحديثات محمل الإقلاع المستقبلية المضمنة في التحديثات الشهرية. هذا مهم لأن الشهادة الحالية ستنتهي صلاحيتها، والانتقال إلى الشهادة الجديدة هو الخطوة الأولى في تحضير الأجهزة للعمل مع تحديثات محمل الإقلاع القادمة التي سيتم توقيعها تشفيرياً بالشهادة الجديدة.",
+      "kb_link": "https://support.microsoft.com/help/5036210"
+    },
+    "vulnerability": {
+      "not_vulnerable": "غير معرض لثغرات SecureBoot",
+      "not_vulnerable_desc": "جهاز الكمبيوتر الخاص بك غير متأثر بالثغرات الأمنية الـ 31 المكشوفة في هذا البحث.",
+      "vulnerable": "معرض لثغرات SecureBoot",
+      "vulnerable_desc": "جهاز الكمبيوتر الخاص بك معرض للثغرات الأمنية الـ 31 المكشوفة في هذا البحث.",
+      "vulnerable_guide": "يرجى الرجوع إلى KB5025885: كيفية إدارة إلغاءات مدير تمهيد Windows للتغييرات في التمهيد الآمن المرتبطة بـ CVE-2023-24932. يصف هذا المقال الحماية من تجاوز ميزة أمان التمهيد الآمن هذه، وكيفية تمكين الحماية، وإرشادات تحديث وسائط التمهيد.",
+      "kb_link": "https://support.microsoft.com/help/5025885",
+      "bootmgr_bypass": "تحذير: يشير إصدار مدير تمهيد Windows الخاص بك إلى ثغرة محتملة في تجاوز ميزات الأمان",
+      "bypass_status": {
+        "vulnerable": "تحذير: يشير إصدار مدير تمهيد Windows الخاص بك إلى ثغرة محتملة في تجاوز ميزات الأمان",
+        "protected": "SecureBoot في جهاز الكمبيوتر الخاص بك يعمل بشكل كامل ومحدث"
+      }
+    }
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "about": "حول",
+    "settings": "الإعدادات"
+  },
+  "footer": {
+    "contact": "اتصل بنا"
+  }
+} 

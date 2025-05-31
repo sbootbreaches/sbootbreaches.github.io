@@ -1,0 +1,94 @@
+{
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Erfolg",
+    "copy": "Kopieren",
+    "data_error": "Parameter konnten nicht abgerufen werden: Bitte stellen Sie sicher, dass Sie den Befehl als Administrator ausführen und prüfen Sie, ob Ihr System im UEFI-Modus gestartet wurde"
+  },
+  "project": {
+    "description": "Dieses Projekt ist Teil der Black Hat USA-Forschung 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'. Es hilft Ihnen zu überprüfen, ob Ihr System von den 31 SecureBoot-Schwachstellen betroffen ist, die von Azure Yang entdeckt und 2024 behoben wurden. Das Tool sammelt anonyme Daten für die Präsentation im finalen Black Hat-Vortrag.",
+    "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
+    "briefing_text": "Black Hat Briefing ansehen",
+    "vuln_list": {
+      "button": "Betroffene Schwachstellen anzeigen",
+      "title": "Betroffene SecureBoot-Schwachstellen",
+      "table": {
+        "cve": "CVE-ID",
+        "description": "Beschreibung",
+        "score": "CVSS-Score"
+      }
+    },
+    "research_details": "SecureBoot, entwickelt zum Schutz vor Firmware-Level-Manipulationen, wurde lange Zeit als 'nur lokale' Angriffsfläche abgetan. Diese Forschung widerlegt diese Annahme und deckt systemische Schwachstellen auf, die eine Remote-Ausnutzung von SecureBoot ermöglichen - bis hin zu Pre-Auth RCE auf vollständig gepatchten Systemen. Mit 31 entdeckten und behobenen CVEs in Microsofts SecureBoot-Implementierung zeigen wir, wie Angreifer Bootloader-Komponenten (Netzwerk-Stacks, BCD-Registrierungen, Dateisysteme) nutzen können, um kritische Sicherheitsgarantien zu umgehen."
+  },
+  "platform": {
+    "select": "Wählen Sie Ihr Betriebssystem:",
+    "windows": "Windows",
+    "linux": "Linux"
+  },
+  "instructions": {
+    "windows": {
+      "title": "Windows-Anweisungen",
+      "description": "Bitte führen Sie die folgenden PowerShell-Befehle als Administrator aus:",
+      "paste": "Kopieren Sie die Ausgabe und fügen Sie sie unten zur Analyse ein:"
+    },
+    "linux": {
+      "title": "Linux-Anweisungen",
+      "description": "Bitte folgen Sie diesen Schritten, um Ihr System zu überprüfen:",
+      "packages": {
+        "title": "1. Erforderliche Pakete installieren",
+        "ubuntu": "Für Ubuntu/Debian:",
+        "rhel": "Für RHEL/CentOS:",
+        "ubuntu_cmd": "sudo apt-get install efivar",
+        "rhel_cmd": "sudo yum install efivar-libs"
+      },
+      "run": {
+        "title": "2. Skript ausführen",
+        "description": "Speichern Sie das folgende Skript als 'check_secureboot.py' und führen Sie es aus:",
+        "command": "python3 check_secureboot.py"
+      },
+      "paste": "Kopieren Sie die Ausgabe und fügen Sie sie unten zur Analyse ein:"
+    }
+  },
+  "analysis": {
+    "placeholder": "Fügen Sie hier Ihre Ausgabe ein...",
+    "button": "Analysieren"
+  },
+  "results": {
+    "title": "Analyseergebnisse",
+    "secure_boot": {
+      "enabled": "SecureBoot ist aktiviert",
+      "disabled": "SecureBoot ist deaktiviert",
+      "enabled_desc": "Ihr System hat SecureBoot aktiviert, was vor Boot-Level-Malware schützt.",
+      "disabled_desc": "Ihr System hat SecureBoot nicht aktiviert. Dies könnte Ihr System anfällig für Boot-Level-Angriffe machen."
+    },
+    "pca_cert": {
+      "detected": "Windows PCA 2023-Zertifikat erkannt",
+      "not_detected": "Windows PCA 2023-Zertifikat nicht erkannt",
+      "detected_desc": "Ihre Boot-Zertifikatdatenbank ist aktuell.",
+      "not_detected_desc": "KB5036210: Die Aktualisierung der DB ermöglicht es Geräten, zukünftige Bootloader-Updates zu erhalten, die in monatlichen Updates enthalten sind. Dies ist wichtig, da das bestehende Zertifikat ablaufen wird, und die Migration zum neuen Zertifikat ist der erste Schritt, um Geräte auf die kommenden Bootloader-Updates vorzubereiten, die mit dem neuen Zertifikat kryptografisch signiert werden.",
+      "kb_link": "https://support.microsoft.com/help/5036210"
+    },
+    "vulnerability": {
+      "not_vulnerable": "Nicht anfällig für SecureBoot-Sicherheitslücken",
+      "not_vulnerable_desc": "Ihr PC ist nicht von den 31 in dieser Forschung offengelegten Sicherheitslücken betroffen.",
+      "vulnerable": "Anfällig für SecureBoot-Sicherheitslücken",
+      "vulnerable_desc": "Ihr PC ist von den 31 in dieser Forschung offengelegten Sicherheitslücken betroffen.",
+      "vulnerable_guide": "Bitte beachten Sie KB5025885: Wie man Windows Boot Manager-Widerrufe für Secure Boot-Änderungen im Zusammenhang mit CVE-2023-24932 verwaltet. Dieser Artikel beschreibt den Schutz gegen diese Secure Boot-Sicherheitsfunktionsumgehung, wie man die Schutzmaßnahmen aktiviert und Anleitungen zur Aktualisierung bootfähiger Medien.",
+      "kb_link": "https://support.microsoft.com/help/5025885",
+      "bootmgr_bypass": "Warnung: Ihre Windows Boot Manager-Version zeigt eine mögliche Sicherheitsfunktionsumgehung",
+      "bypass_status": {
+        "vulnerable": "Warnung: Ihre Windows Boot Manager-Version zeigt eine mögliche Sicherheitsfunktionsumgehung",
+        "protected": "Ihr PC SecureBoot ist voll funktionsfähig und auf dem neuesten Stand"
+      }
+    }
+  },
+  "navigation": {
+    "home": "Startseite",
+    "about": "Über",
+    "settings": "Einstellungen"
+  },
+  "footer": {
+    "contact": "Kontakt"
+  }
+} 

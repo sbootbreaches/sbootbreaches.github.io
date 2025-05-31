@@ -1,0 +1,82 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "success": "成功",
+    "copy": "复制",
+    "data_error": "参数获取失败：请确保以管理员权限运行命令，并检查系统是否以 UEFI 模式启动"
+  },
+  "project": {
+    "description": "本项目是 Black Hat USA 研究议题'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'的一部分。它可以帮助你检查系统是否受到 Azure Yang 发现并在2024年修复的31个安全启动漏洞的影响。该工具会收集匿名数据用于在 Black Hat 最终演讲中展示。",
+    "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
+    "briefing_text": "查看 Black Hat 议题详情",
+    "vuln_list": {
+      "button": "显示受影响漏洞列表",
+      "title": "受影响的安全启动漏洞",
+      "table": {
+        "cve": "CVE 编号",
+        "description": "描述",
+        "score": "CVSS 评分"
+      }
+    },
+    "research_details": "安全启动（SecureBoot）旨在防止固件级别的篡改，长期以来被认为仅限于'本地攻击面'。这项研究打破了这一假设，揭示了能够实现远程利用安全启动的系统性漏洞——最终可在完全打过补丁的系统上实现免认证远程代码执行（Pre-Auth RCE）。我们在微软安全启动实现中发现了31个CVE，这些漏洞于2024年修复，揭示了攻击者如何利用引导加载程序组件（网络协议栈、BCD注册表、文件系统）来绕过关键的安全保护。"
+  },
+  "platform": {
+    "select": "选择您的操作系统：",
+    "windows": "Windows",
+    "linux": "Linux"
+  },
+  "instructions": {
+    "windows": {
+      "title": "Windows 使用说明",
+      "description": "请以管理员身份运行以下 PowerShell 命令：",
+      "paste": "复制输出并粘贴到下方进行分析："
+    },
+    "linux": {
+      "title": "Linux 使用说明",
+      "description": "请将以下脚本保存为 'check_secureboot.py' 并运行：",
+      "paste": "复制输出结果并粘贴到下方进行分析："
+    }
+  },
+  "analysis": {
+    "placeholder": "在此粘贴输出内容...",
+    "button": "分析"
+  },
+  "results": {
+    "title": "分析结果",
+    "secure_boot": {
+      "enabled": "已启用安全启动",
+      "disabled": "未启用安全启动",
+      "enabled_desc": "您的系统已启用安全启动，可以防止启动级别的恶意软件。",
+      "disabled_desc": "您的系统未启用安全启动。这可能会使系统容易受到启动级别的攻击。"
+    },
+    "pca_cert": {
+      "detected": "检测到 Windows PCA 2023 证书",
+      "not_detected": "未检测到 Windows PCA 2023 证书",
+      "detected_desc": "您的启动证书数据库已是最新。",
+      "not_detected_desc": "KB5036210：更新数据库将使设备能够接收包含在每月更新中的未来引导加载程序更新。这一点很重要，因为现有证书将过期，迁移到新证书是准备设备使用即将发布的、使用新证书进行加密签名的引导加载程序更新的第一步。",
+      "kb_link": "https://support.microsoft.com/help/5036210"
+    },
+    "vulnerability": {
+      "not_vulnerable": "不受 SecureBoot 漏洞影响",
+      "not_vulnerable_desc": "您的电脑不受本研究中披露的31个漏洞的影响。",
+      "vulnerable": "存在 SecureBoot 漏洞风险",
+      "vulnerable_desc": "您的电脑受本研究中披露的31个漏洞的影响。",
+      "vulnerable_guide": "请参考 KB5025885：如何管理与 CVE-2023-24932 相关的 Windows 启动管理器吊销和安全启动更改。本文介绍了如何防范此安全启动安全功能绕过漏洞，如何启用保护，以及如何更新可启动介质。",
+      "kb_link": "https://support.microsoft.com/help/5025885",
+      "bootmgr_bypass": "警告：您的 Windows 启动管理器版本显示可能存在安全功能绕过漏洞",
+      "bypass_status": {
+        "vulnerable": "警告：您的 Windows 启动管理器版本显示可能存在安全功能绕过漏洞",
+        "protected": "您的电脑安全启动功能完整且已是最新状态"
+      }
+    }
+  },
+  "navigation": {
+    "home": "首页",
+    "about": "关于",
+    "settings": "设置"
+  },
+  "footer": {
+    "contact": "联系我们"
+  }
+} 

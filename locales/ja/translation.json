@@ -1,0 +1,82 @@
+{
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "success": "成功",
+    "copy": "コピー",
+    "data_error": "パラメータの取得に失敗しました：管理者として実行し、システムがUEFIモードで起動していることを確認してください"
+  },
+  "project": {
+    "description": "このプロジェクトは、Black Hat USAの研究「Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces」の一部です。Azure Yangによって発見され、2024年に修正された31のSecureBootの脆弱性の影響を受けているかどうかを確認するのに役立ちます。このツールは、Black Hatの最終講演で発表するために匿名データを収集します。",
+    "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
+    "briefing_text": "Black Hat ブリーフィングを表示",
+    "vuln_list": {
+      "button": "影響を受ける脆弱性を表示",
+      "title": "影響を受けるSecureBootの脆弱性",
+      "table": {
+        "cve": "CVE ID",
+        "description": "説明",
+        "score": "CVSSスコア"
+      }
+    },
+    "research_details": "ファームウェアレベルの改ざんから保護するように設計されたSecureBootは、長い間「ローカルのみ」の攻撃対象とされてきました。この研究はその前提を覆し、SecureBootのリモート悪用を可能にするシステム的な欠陥を明らかにし、完全にパッチが適用されたシステムでの事前認証RCEにまで至ります。MicrosoftのSecureBootの実装で発見され修正された31のCVEにより、攻撃者がブートローダーコンポーネント（ネットワークスタック、BCDレジストリ、ファイルシステム）を武器化して重要なセキュリティ保証を回避する方法を明らかにしています。"
+  },
+  "platform": {
+    "select": "オペレーティングシステムを選択：",
+    "windows": "Windows",
+    "linux": "Linux"
+  },
+  "instructions": {
+    "windows": {
+      "title": "Windows の手順",
+      "description": "以下のPowerShellコマンドを管理者として実行してください：",
+      "paste": "出力をコピーして下記に貼り付けて分析してください："
+    },
+    "linux": {
+      "title": "Linux の手順",
+      "description": "以下のスクリプトを 'check_secureboot.py' として保存して実行してください：",
+      "paste": "出力をコピーして下記に貼り付けて分析してください："
+    }
+  },
+  "analysis": {
+    "placeholder": "ここに出力を貼り付けてください...",
+    "button": "分析"
+  },
+  "results": {
+    "title": "分析結果",
+    "secure_boot": {
+      "enabled": "SecureBootは有効です",
+      "disabled": "SecureBootは無効です",
+      "enabled_desc": "システムでSecureBootが有効になっており、ブートレベルのマルウェアから保護されています。",
+      "disabled_desc": "システムでSecureBootが無効になっています。ブートレベルの攻撃に対して脆弱な可能性があります。"
+    },
+    "pca_cert": {
+      "detected": "Windows PCA 2023証明書が検出されました",
+      "not_detected": "Windows PCA 2023証明書が検出されませんでした",
+      "detected_desc": "ブート証明書データベースは最新です。",
+      "not_detected_desc": "KB5036210：DBを更新することで、月次更新に含まれる将来のブートローダーの更新を受け取ることができるようになります。これは、既存の証明書が期限切れになるため重要であり、新しい証明書への移行は、新しい証明書で暗号的に署名される今後のブートローダーの更新に対応するためのデバイスの準備の第一歩となります。",
+      "kb_link": "https://support.microsoft.com/help/5036210"
+    },
+    "vulnerability": {
+      "not_vulnerable": "SecureBootの脆弱性の影響なし",
+      "not_vulnerable_desc": "お使いのPCは、この研究で開示された31個の脆弱性の影響を受けていません。",
+      "vulnerable": "SecureBootの脆弱性の影響あり",
+      "vulnerable_desc": "お使いのPCは、この研究で開示された31個の脆弱性の影響を受けています。",
+      "vulnerable_guide": "KB5025885を参照してください：CVE-2023-24932に関連するSecure Bootの変更に対するWindows Boot Managerの失効を管理する方法。この記事では、このSecure Bootセキュリティ機能のバイパスに対する保護、保護の有効化方法、起動可能メディアの更新ガイダンスについて説明しています。",
+      "kb_link": "https://support.microsoft.com/help/5025885",
+      "bootmgr_bypass": "警告：Windows Boot Managerのバージョンがセキュリティ機能のバイパスの脆弱性を示しています",
+      "bypass_status": {
+        "vulnerable": "警告：Windows Boot Managerのバージョンがセキュリティ機能のバイパスの脆弱性を示しています",
+        "protected": "お使いのPCのSecureBootは完全に機能し、最新の状態です"
+      }
+    }
+  },
+  "navigation": {
+    "home": "ホーム",
+    "about": "概要",
+    "settings": "設定"
+  },
+  "footer": {
+    "contact": "お問い合わせ"
+  }
+} 

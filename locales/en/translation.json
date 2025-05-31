@@ -1,0 +1,82 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "copy": "Copy",
+    "data_error": "Failed to get parameters: Please ensure you run the command as administrator and check if your system is booted in UEFI mode"
+  },
+  "project": {
+    "description": "This project is part of the Black Hat USA research \"Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces\". It helps you check if your system is affected by the 31 SecureBoot vulnerabilities discovered by Azure Yang and patched in 2024. The tool collects anonymous data for presentation in the final Black Hat talk.",
+    "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
+    "briefing_text": "View Black Hat Briefing",
+    "vuln_list": {
+      "button": "Show Affected Vulnerabilities",
+      "title": "Affected SecureBoot Vulnerabilities",
+      "table": {
+        "cve": "CVE ID",
+        "description": "Description",
+        "score": "CVSS Score"
+      }
+    },
+    "research_details": "SecureBoot, designed to protect against firmware-level tampering, has long been dismissed as a \"local-only\" attack surface. This research shatters that assumption, exposing systemic flaws that enable remote exploitation of SecureBoot—culminating in Pre-Auth RCE on fully patched systems. With 31 CVEs discovered and fixed in Microsoft's SecureBoot implementation, we reveal how attackers can weaponize bootloader components (network stacks, BCD registries, filesystems) to bypass critical security guarantees."
+  },
+  "platform": {
+    "select": "Select Your Operating System:",
+    "windows": "Windows",
+    "linux": "Linux"
+  },
+  "instructions": {
+    "windows": {
+      "title": "Windows Instructions",
+      "description": "Please run the following PowerShell commands as Administrator:",
+      "paste": "Copy the output and paste it below for analysis:"
+    },
+    "linux": {
+      "title": "Linux Instructions",
+      "description": "Please save the following script as 'check_secureboot.py' and run it:",
+      "paste": "Copy the output and paste it below for analysis:"
+    }
+  },
+  "analysis": {
+    "placeholder": "Paste your output here...",
+    "button": "Analyze"
+  },
+  "results": {
+    "title": "Analysis Results",
+    "secure_boot": {
+      "enabled": "SecureBoot is enabled",
+      "disabled": "SecureBoot is disabled",
+      "enabled_desc": "Your system has SecureBoot enabled, which helps protect against boot-level malware.",
+      "disabled_desc": "Your system does not have SecureBoot enabled. This may leave your system vulnerable to boot-level attacks."
+    },
+    "pca_cert": {
+      "detected": "Windows PCA 2023 Certificate detected",
+      "not_detected": "Windows PCA 2023 certificate not detected",
+      "detected_desc": "Your Boot certificate database is up to date.",
+      "not_detected_desc": "KB5036210: Updating the DB will enable devices to receive future boot loader updates that are included in monthly updates. This is important because the existing certificate will expire and moving to the new certificate is the first step in preparing devices to work with upcoming boot loader updates that will be cryptographically signed by using the new certificate.",
+      "kb_link": "https://support.microsoft.com/help/5036210"
+    },
+    "vulnerability": {
+      "not_vulnerable": "Not vulnerable to SecureBoot Breaches",
+      "not_vulnerable_desc": "Your PC is not affected by the 31 vulnerabilities disclosed in this research.",
+      "vulnerable": "Vulnerable to SecureBoot Breaches",
+      "vulnerable_desc": "Your PC is vulnerable to the 31 vulnerabilities disclosed in this research.",
+      "vulnerable_guide": "Please refer to KB5025885: How to manage the Windows Boot Manager revocations for Secure Boot changes associated with CVE-2023-24932. This article describes the protection against this Secure Boot security feature bypass, how to enable the protections, and guidance to update bootable media.",
+      "kb_link": "https://support.microsoft.com/help/5025885",
+      "bootmgr_bypass": "Warning: Your Windows Boot Manager version indicates potential security feature bypass vulnerability",
+      "bypass_status": {
+        "vulnerable": "Warning: Your Windows Boot Manager version indicates potential security feature bypass vulnerability",
+        "protected": "Your PC SecureBoot is fully functional and is up to date"
+      }
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "settings": "Settings"
+  },
+  "footer": {
+    "contact": "Contact"
+  }
+} 

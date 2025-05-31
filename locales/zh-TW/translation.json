@@ -1,0 +1,82 @@
+{
+  "common": {
+    "loading": "載入中...",
+    "error": "發生錯誤",
+    "success": "成功",
+    "copy": "複製",
+    "data_error": "參數獲取失敗：請確保以管理員權限運行命令，並檢查系統是否以 UEFI 模式啟動"
+  },
+  "project": {
+    "description": "本專案是 Black Hat USA 研究議題「Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces」的一部分。它可以幫助你檢查系統是否受到 Azure Yang 發現並在2024年修復的31個安全啟動漏洞的影響。該工具會收集匿名資料用於在 Black Hat 最終演講中展示。",
+    "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
+    "briefing_text": "查看 Black Hat 議題詳情",
+    "vuln_list": {
+      "button": "顯示受影響漏洞列表",
+      "title": "受影響的安全啟動漏洞",
+      "table": {
+        "cve": "CVE 編號",
+        "description": "描述",
+        "score": "CVSS 評分"
+      }
+    },
+    "research_details": "安全啟動（SecureBoot）旨在防止韌體級別的篡改，長期以來被認為僅限於「本地攻擊面」。這項研究打破了這一假設，揭示了能夠實現遠程利用安全啟動的系統性漏洞——最終可在完全打過補丁的系統上實現免認證遠程程式碼執行（Pre-Auth RCE）。我們在微軟安全啟動實現中發現了31個CVE，這些漏洞於2024年修復，揭示了攻擊者如何利用引導載入程式元件（網路協定堆疊、BCD註冊表、檔案系統）來繞過關鍵的安全保護。"
+  },
+  "platform": {
+    "select": "選擇您的作業系統：",
+    "windows": "Windows",
+    "linux": "Linux"
+  },
+  "instructions": {
+    "windows": {
+      "title": "Windows 使用說明",
+      "description": "請以管理員身份運行以下 PowerShell 命令：",
+      "paste": "複製輸出並貼上到下方進行分析："
+    },
+    "linux": {
+      "title": "Linux 使用說明",
+      "description": "請將以下腳本儲存為 'check_secureboot.py' 並運行：",
+      "paste": "複製輸出結果並貼上到下方進行分析："
+    }
+  },
+  "analysis": {
+    "placeholder": "在此貼上輸出內容...",
+    "button": "分析"
+  },
+  "results": {
+    "title": "分析結果",
+    "secure_boot": {
+      "enabled": "已啟用安全啟動",
+      "disabled": "未啟用安全啟動",
+      "enabled_desc": "您的系統已啟用安全啟動，可以防止啟動級別的惡意軟體。",
+      "disabled_desc": "您的系統未啟用安全啟動。這可能會使系統容易受到啟動級別的攻擊。"
+    },
+    "pca_cert": {
+      "detected": "檢測到 Windows PCA 2023 憑證",
+      "not_detected": "未檢測到 Windows PCA 2023 憑證",
+      "detected_desc": "您的啟動憑證資料庫已是最新。",
+      "not_detected_desc": "KB5036210：更新資料庫將使裝置能夠接收包含在每月更新中的未來引導載入程式更新。這一點很重要，因為現有憑證將過期，遷移到新憑證是準備裝置使用即將發布的、使用新憑證進行加密簽名的引導載入程式更新的第一步。",
+      "kb_link": "https://support.microsoft.com/help/5036210"
+    },
+    "vulnerability": {
+      "not_vulnerable": "不受 SecureBoot 漏洞影響",
+      "not_vulnerable_desc": "您的電腦不受本研究中披露的31個漏洞的影響。",
+      "vulnerable": "存在 SecureBoot 漏洞風險",
+      "vulnerable_desc": "您的電腦受本研究中披露的31個漏洞的影響。",
+      "vulnerable_guide": "請參考 KB5025885：如何管理與 CVE-2023-24932 相關的 Windows 開機管理程式撤銷和安全開機變更。本文介紹了如何防範此安全開機安全功能繞過漏洞，如何啟用保護，以及如何更新可開機媒體。",
+      "kb_link": "https://support.microsoft.com/help/5025885",
+      "bootmgr_bypass": "警告：您的 Windows 啟動管理器版本顯示可能存在安全功能繞過漏洞",
+      "bypass_status": {
+        "vulnerable": "警告：您的 Windows 啟動管理器版本顯示可能存在安全功能繞過漏洞",
+        "protected": "您的電腦安全啟動功能完整且已是最新狀態"
+      }
+    }
+  },
+  "navigation": {
+    "home": "首頁",
+    "about": "關於",
+    "settings": "設定"
+  },
+  "footer": {
+    "contact": "聯絡我們"
+  }
+} 

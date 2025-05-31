@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts.css">
+    <title>SecureBoot Status Check</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="i18next.min.js"></script>
+    <script src="i18nextHttpBackend.min.js"></script>
+    <script src="i18nextBrowserLanguageDetector.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <h1>SecureBoot <span class="accent">Status Check</span></h1>
+                </div>
+                <div class="language-switcher">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)" class="lang-select">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="zh-CN">简体中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="zh-TW">繁體中文</option>
+                        <option value="de">Deutsch</option>
+                        <option value="fr">Français</option>
+                        <option value="ru">Русский</option>
+                        <option value="ko">한국어</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+            </div>
+            <div class="scan-line"></div>
+        </div>
+
+        <div class="project-description">
+            <div class="panel">
+                <div class="panel-content">
+                    <p data-i18n="project.description">This project is part of the Black Hat USA research "Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces". It helps you check if your system is affected by the 31 SecureBoot vulnerabilities discovered by Azure Yang and patched in 2024. The tool collects anonymous data for presentation in the final Black Hat talk.</p>
+                    <div class="button-group">
+                        <a href="#" class="cyber-button" onclick="window.open(i18next.t('project.briefing_link'), '_blank')">
+                            <span class="button-text" data-i18n="project.briefing_text">View Black Hat Briefing</span>
+                            <span class="button-glitch"></span>
+                        </a>
+                    </div>
+                    <div class="research-details">
+                        <p data-i18n="project.research_details">SecureBoot, designed to protect against firmware-level tampering, has long been dismissed as a "local-only" attack surface. This research shatters that assumption, exposing systemic flaws that enable remote exploitation of SecureBoot—culminating in Pre-Auth RCE on fully patched systems. With 31 CVEs discovered and fixed in Microsoft's SecureBoot implementation, we reveal how attackers can weaponize bootloader components (network stacks, BCD registries, filesystems) to bypass critical security guarantees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="platform-select">
+            <h2 data-i18n="platform.select">Select Your Operating System:</h2>
+            <div class="button-group">
+                <button class="cyber-button" onclick="selectPlatform('windows')">
+                    <span class="button-text" data-i18n="platform.windows">Windows</span>
+                    <span class="button-glitch"></span>
+                </button>
+                <button class="cyber-button" onclick="selectPlatform('linux')">
+                    <span class="button-text" data-i18n="platform.linux">Linux</span>
+                    <span class="button-glitch"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="windows-instructions" class="instructions hidden">
+            <div class="panel">
+                <div class="panel-header">
+                    <h3 data-i18n="instructions.windows.title">Windows Instructions</h3>
+                </div>
+                <div class="panel-content">
+                    <p data-i18n="instructions.windows.description">Please run the following PowerShell commands as Administrator:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">PowerShell</span>
+                            <button class="copy-button" onclick="copyCode()" data-i18n="common.copy">Copy</button>
+                        </div>
+                        <pre><code></code></pre>
+                    </div>
+                    <p data-i18n="instructions.windows.paste">Copy the output and paste it below for analysis:</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="linux-instructions" class="instructions hidden">
+            <div class="panel">
+                <div class="panel-header">
+                    <h3 data-i18n="instructions.linux.title">Linux Instructions</h3>
+                </div>
+                <div class="panel-content">
+                    <p data-i18n="instructions.linux.description">Please save the following script as 'check_secureboot.py' and run it:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">Python</span>
+                            <button class="copy-button" onclick="copyCode()" data-i18n="common.copy">Copy</button>
+                        </div>
+                        <pre><code></code></pre>
+                    </div>
+                    <p data-i18n="instructions.linux.paste">Copy the output and paste it below for analysis:</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="analysis-section">
+            <textarea class="analysis-area" id="analysisInput" data-i18n-placeholder="analysis.placeholder" placeholder="Paste your output here..."></textarea>
+            <button class="cyber-button analyze-button" onclick="analyzeOutput()">
+                <span class="button-text" data-i18n="analysis.button">Analyze</span>
+                <span class="button-glitch"></span>
+            </button>
+        </div>
+
+        <div id="results" class="results hidden">
+            <div class="panel">
+                <div class="panel-header">
+                    <h3 data-i18n="results.title">Analysis Results</h3>
+                </div>
+                <div class="panel-content">
+                    <div id="secureboot-result" class="result"></div>
+                    <div id="pca-result" class="result"></div>
+                    <div id="vuln-result" class="result"></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <p>© 2025 SecureBoot Check | <a href="https://x.com/4zure9" target="_blank" class="x-link">Azure Yang</a> with Kunlun Lab</p>
+                <div class="footer-links">
+                    <a href="https://www.cyberkl.com/" data-i18n="footer.contact">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="ui.js"></script>
+</body>
+
+</html>
