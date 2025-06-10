@@ -7,7 +7,7 @@
     "data_error": "Échec de l'obtention des paramètres : Veuillez vous assurer d'exécuter la commande en tant qu'administrateur et vérifier si votre système démarre en mode UEFI"
   },
   "project": {
-    "description": "Ce projet fait partie de la recherche Black Hat USA 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'. Il vous aide à vérifier si votre système est affecté par les 31 vulnérabilités SecureBoot découvertes par Azure Yang et corrigées en 2024. L'outil collecte des données anonymes pour la présentation lors de la conférence finale Black Hat.",
+    "description": "Ce projet fait partie de la recherche Black Hat USA 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'. Il vous aide à vérifier si votre système est affecté par les 32 vulnérabilités SecureBoot découvertes par Azure Yang et corrigées en 2024. L'outil collecte des données anonymes pour la présentation lors de la conférence finale Black Hat.",
     "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
     "briefing_text": "Voir le briefing Black Hat",
     "vuln_list": {
@@ -19,7 +19,7 @@
         "score": "Score CVSS"
       }
     },
-    "research_details": "SecureBoot, conçu pour protéger contre les manipulations au niveau du firmware, a longtemps été considéré comme une surface d'attaque 'uniquement locale'. Cette recherche brise cette hypothèse, révélant des failles systémiques qui permettent l'exploitation à distance de SecureBoot, culminant en RCE pré-authentification sur des systèmes entièrement corrigés. Avec 31 CVE découverts et corrigés dans l'implémentation SecureBoot de Microsoft, nous révélons comment les attaquants peuvent exploiter les composants du chargeur de démarrage (piles réseau, registres BCD, systèmes de fichiers) pour contourner les garanties de sécurité critiques."
+    "research_details": "SecureBoot, conçu pour protéger contre les manipulations au niveau du firmware, a longtemps été considéré comme une surface d'attaque 'uniquement locale'. Cette recherche brise cette hypothèse, révélant des failles systémiques qui permettent l'exploitation à distance de SecureBoot, culminant en RCE pré-authentification sur des systèmes entièrement corrigés. Avec 32 CVE découverts et corrigés dans l'implémentation SecureBoot de Microsoft, nous révélons comment les attaquants peuvent exploiter les composants du chargeur de démarrage (piles réseau, registres BCD, systèmes de fichiers) pour contourner les garanties de sécurité critiques."
   },
   "platform": {
     "select": "Sélectionnez votre système d'exploitation :",
@@ -59,9 +59,9 @@
     },
     "vulnerability": {
       "not_vulnerable": "Non vulnérable aux failles SecureBoot",
-      "not_vulnerable_desc": "Votre PC n'est pas affecté par les 31 vulnérabilités révélées dans cette recherche.",
+      "not_vulnerable_desc": "Votre PC n'est pas affecté par les 32 vulnérabilités révélées dans cette recherche.",
       "vulnerable": "Vulnérable aux failles SecureBoot",
-      "vulnerable_desc": "Votre PC est vulnérable aux 31 vulnérabilités révélées dans cette recherche.",
+      "vulnerable_desc": "Votre PC est vulnérable aux 32 vulnérabilités révélées dans cette recherche.",
       "vulnerable_guide": "Veuillez consulter KB5025885 : Comment gérer les révocations du gestionnaire de démarrage Windows pour les modifications de Secure Boot associées à CVE-2023-24932. Cet article décrit la protection contre ce contournement de la fonction de sécurité Secure Boot, comment activer les protections et les conseils pour mettre à jour les supports de démarrage.",
       "kb_link": "https://support.microsoft.com/help/5025885",
       "bootmgr_bypass": "Avertissement : La version de votre gestionnaire de démarrage Windows indique une vulnérabilité potentielle de contournement des fonctionnalités de sécurité",

@@ -7,7 +7,7 @@
     "data_error": "매개변수를 가져오지 못했습니다: 관리자 권한으로 명령을 실행하고 시스템이 UEFI 모드로 부팅되었는지 확인하세요"
   },
   "project": {
-    "description": "이 프로젝트는 Black Hat USA 연구 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'의 일부입니다. Azure Yang이 발견하고 2024년에 수정된 31개의 SecureBoot 취약점의 영향을 받는지 확인하는 데 도움이 됩니다. 이 도구는 Black Hat 최종 발표를 위해 익명 데이터를 수집합니다.",
+    "description": "이 프로젝트는 Black Hat USA 연구 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'의 일부입니다. Azure Yang이 발견하고 2024년에 수정된 32개의 SecureBoot 취약점의 영향을 받는지 확인하는 데 도움이 됩니다. 이 도구는 Black Hat 최종 발표를 위해 익명 데이터를 수집합니다.",
     "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
     "briefing_text": "Black Hat 브리핑 보기",
     "vuln_list": {
@@ -19,7 +19,7 @@
         "score": "CVSS 점수"
       }
     },
-    "research_details": "펌웨어 수준의 조작을 방지하도록 설계된 SecureBoot는 오랫동안 '로컬 전용' 공격 표면으로 간주되었습니다. 이 연구는 그 가정을 깨고, SecureBoot의 원격 악용을 가능하게 하는 시스템적 결함을 밝혀내어 완전히 패치된 시스템에서도 사전 인증 RCE까지 가능함을 보여줍니다. Microsoft의 SecureBoot 구현에서 발견되고 수정된 31개의 CVE를 통해, 공격자가 부트로더 구성 요소(네트워크 스택, BCD 레지스트리, 파일 시스템)를 무기화하여 중요한 보안 보증을 우회하는 방법을 보여줍니다."
+    "research_details": "펌웨어 수준의 조작을 방지하도록 설계된 SecureBoot는 오랫동안 '로컬 전용' 공격 표면으로 간주되었습니다. 이 연구는 그 가정을 깨고, SecureBoot의 원격 악용을 가능하게 하는 시스템적 결함을 밝혀내어 완전히 패치된 시스템에서도 사전 인증 RCE까지 가능함을 보여줍니다. Microsoft의 SecureBoot 구현에서 발견되고 수정된 32개의 CVE를 통해, 공격자가 부트로더 구성 요소(네트워크 스택, BCD 레지스트리, 파일 시스템)를 무기화하여 중요한 보안 보증을 우회하는 방법을 보여줍니다."
   },
   "platform": {
     "select": "운영 체제 선택:",
@@ -59,9 +59,9 @@
     },
     "vulnerability": {
       "not_vulnerable": "SecureBoot 취약점에 영향 없음",
-      "not_vulnerable_desc": "귀하의 PC는 이 연구에서 공개된 31개의 취약점의 영향을 받지 않습니다.",
+      "not_vulnerable_desc": "귀하의 PC는 이 연구에서 공개된 32개의 취약점의 영향을 받지 않습니다.",
       "vulnerable": "SecureBoot 취약점에 영향 있음",
-      "vulnerable_desc": "귀하의 PC는 이 연구에서 공개된 31개의 취약점의 영향을 받습니다.",
+      "vulnerable_desc": "귀하의 PC는 이 연구에서 공개된 32개의 취약점의 영향을 받습니다.",
       "vulnerable_guide": "KB5025885를 참조하세요: CVE-2023-24932와 관련된 Secure Boot 변경에 대한 Windows 부트 관리자 해지 관리 방법. 이 문서는 이 Secure Boot 보안 기능 우회에 대한 보호, 보호 기능 활성화 방법 및 부팅 가능한 미디어 업데이트 지침을 설명합니다.",
       "kb_link": "https://support.microsoft.com/help/5025885",
       "bootmgr_bypass": "경고: Windows 부트 관리자 버전이 보안 기능 우회 취약점을 나타냅니다",

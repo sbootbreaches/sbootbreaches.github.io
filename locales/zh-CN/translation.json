@@ -7,7 +7,7 @@
     "data_error": "参数获取失败：请确保以管理员权限运行命令，并检查系统是否以 UEFI 模式启动"
   },
   "project": {
-    "description": "本项目是 Black Hat USA 研究议题'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'的一部分。它可以帮助你检查系统是否受到 Azure Yang 发现并在2024年修复的31个安全启动漏洞的影响。该工具会收集匿名数据用于在 Black Hat 最终演讲中展示。",
+    "description": "本项目是 Black Hat USA 研究议题'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'的一部分。它可以帮助你检查系统是否受到 Azure Yang 发现并在2024年修复的32个安全启动漏洞的影响。该工具会收集匿名数据用于在 Black Hat 最终演讲中展示。",
     "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
     "briefing_text": "查看 Black Hat 议题详情",
     "vuln_list": {
@@ -19,7 +19,7 @@
         "score": "CVSS 评分"
       }
     },
-    "research_details": "安全启动（SecureBoot）旨在防止固件级别的篡改，长期以来被认为仅限于'本地攻击面'。这项研究打破了这一假设，揭示了能够实现远程利用安全启动的系统性漏洞——最终可在完全打过补丁的系统上实现免认证远程代码执行（Pre-Auth RCE）。我们在微软安全启动实现中发现了31个CVE，这些漏洞于2024年修复，揭示了攻击者如何利用引导加载程序组件（网络协议栈、BCD注册表、文件系统）来绕过关键的安全保护。"
+    "research_details": "安全启动（SecureBoot）旨在防止固件级别的篡改，长期以来被认为仅限于'本地攻击面'。这项研究打破了这一假设，揭示了能够实现远程利用安全启动的系统性漏洞——最终可在完全打过补丁的系统上实现免认证远程代码执行（Pre-Auth RCE）。我们在微软安全启动实现中发现了32个CVE，这些漏洞于2024年修复，揭示了攻击者如何利用引导加载程序组件（网络协议栈、BCD注册表、文件系统）来绕过关键的安全保护。"
   },
   "platform": {
     "select": "选择您的操作系统：",
@@ -59,9 +59,9 @@
     },
     "vulnerability": {
       "not_vulnerable": "不受 SecureBoot 漏洞影响",
-      "not_vulnerable_desc": "您的电脑不受本研究中披露的31个漏洞的影响。",
+      "not_vulnerable_desc": "您的电脑不受本研究中披露的32个漏洞的影响。",
       "vulnerable": "存在 SecureBoot 漏洞风险",
-      "vulnerable_desc": "您的电脑受本研究中披露的31个漏洞的影响。",
+      "vulnerable_desc": "您的电脑受本研究中披露的32个漏洞的影响。",
       "vulnerable_guide": "请参考 KB5025885：如何管理与 CVE-2023-24932 相关的 Windows 启动管理器吊销和安全启动更改。本文介绍了如何防范此安全启动安全功能绕过漏洞，如何启用保护，以及如何更新可启动介质。",
       "kb_link": "https://support.microsoft.com/help/5025885",
       "bootmgr_bypass": "警告：您的 Windows 启动管理器版本显示可能存在安全功能绕过漏洞",

@@ -7,7 +7,7 @@
     "data_error": "Failed to get parameters: Please ensure you run the command as administrator and check if your system is booted in UEFI mode"
   },
   "project": {
-    "description": "This project is part of the Black Hat USA research \"Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces\". It helps you check if your system is affected by the 31 SecureBoot vulnerabilities discovered by Azure Yang and patched in 2024. The tool collects anonymous data for presentation in the final Black Hat talk.",
+    "description": "This project is part of the Black Hat USA research \"Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces\". It helps you check if your system is affected by the 32 SecureBoot vulnerabilities discovered by Azure Yang and patched in 2024. The tool collects anonymous data for presentation in the final Black Hat talk.",
     "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
     "briefing_text": "View Black Hat Briefing",
     "vuln_list": {
@@ -19,7 +19,7 @@
         "score": "CVSS Score"
       }
     },
-    "research_details": "SecureBoot, designed to protect against firmware-level tampering, has long been dismissed as a \"local-only\" attack surface. This research shatters that assumption, exposing systemic flaws that enable remote exploitation of SecureBoot—culminating in Pre-Auth RCE on fully patched systems. With 31 CVEs discovered and fixed in Microsoft's SecureBoot implementation, we reveal how attackers can weaponize bootloader components (network stacks, BCD registries, filesystems) to bypass critical security guarantees."
+    "research_details": "SecureBoot, designed to protect against firmware-level tampering, has long been dismissed as a \"local-only\" attack surface. This research shatters that assumption, exposing systemic flaws that enable remote exploitation of SecureBoot—culminating in Pre-Auth RCE on fully patched systems. With 32 CVEs discovered and fixed in Microsoft's SecureBoot implementation, we reveal how attackers can weaponize bootloader components (network stacks, BCD registries, filesystems) to bypass critical security guarantees."
   },
   "platform": {
     "select": "Select Your Operating System:",
@@ -59,9 +59,9 @@
     },
     "vulnerability": {
       "not_vulnerable": "Not vulnerable to SecureBoot Breaches",
-      "not_vulnerable_desc": "Your PC is not affected by the 31 vulnerabilities disclosed in this research.",
+      "not_vulnerable_desc": "Your PC is not affected by the 32 vulnerabilities disclosed in this research.",
       "vulnerable": "Vulnerable to SecureBoot Breaches",
-      "vulnerable_desc": "Your PC is vulnerable to the 31 vulnerabilities disclosed in this research.",
+      "vulnerable_desc": "Your PC is vulnerable to the 32 vulnerabilities disclosed in this research.",
       "vulnerable_guide": "Please refer to KB5025885: How to manage the Windows Boot Manager revocations for Secure Boot changes associated with CVE-2023-24932. This article describes the protection against this Secure Boot security feature bypass, how to enable the protections, and guidance to update bootable media.",
       "kb_link": "https://support.microsoft.com/help/5025885",
       "bootmgr_bypass": "Warning: Your Windows Boot Manager version indicates potential security feature bypass vulnerability",

@@ -44,9 +44,9 @@
     },
     "vulnerability": {
       "not_vulnerable": "No es vulnerable a las brechas de SecureBoot",
-      "not_vulnerable_desc": "Su PC no está afectada por las 31 vulnerabilidades reveladas en esta investigación.",
+      "not_vulnerable_desc": "Su PC no está afectada por las 32 vulnerabilidades reveladas en esta investigación.",
       "vulnerable": "Vulnerable a las brechas de SecureBoot",
-      "vulnerable_desc": "Su PC es vulnerable a las 31 vulnerabilidades reveladas en esta investigación.",
+      "vulnerable_desc": "Su PC es vulnerable a las 32 vulnerabilidades reveladas en esta investigación.",
       "vulnerable_guide": "Consulte KB5025885: Cómo gestionar las revocaciones del Administrador de arranque de Windows para los cambios de Secure Boot asociados con CVE-2023-24932. Este artículo describe la protección contra este bypass de la función de seguridad de Secure Boot, cómo habilitar las protecciones y la guía para actualizar los medios de arranque.",
       "kb_link": "https://support.microsoft.com/help/5025885",
       "bootmgr_bypass": "Advertencia: La versión de tu Administrador de Arranque de Windows indica una posible vulnerabilidad de bypass de características de seguridad",
@@ -66,7 +66,7 @@
     "copyright": "© 2025 SecureBoot Check | Azure Yang con Kunlun Lab"
   },
   "project": {
-    "description": "Este proyecto es parte de la investigación de Black Hat USA 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'. Te ayuda a verificar si tu sistema está afectado por las 31 vulnerabilidades de SecureBoot descubiertas por Azure Yang y parcheadas en 2024. La herramienta recopila datos anónimos para su presentación en la charla final de Black Hat.",
+    "description": "Este proyecto es parte de la investigación de Black Hat USA 'Booting into Breaches: Hunting Windows SecureBoot's Remote Attack Surfaces'. Te ayuda a verificar si tu sistema está afectado por las 32 vulnerabilidades de SecureBoot descubiertas por Azure Yang y parcheadas en 2024. La herramienta recopila datos anónimos para su presentación en la charla final de Black Hat.",
     "briefing_link": "https://www.blackhat.com/us-25/briefings/schedule/#booting-into-breaches-hunting-windows-secureboots-remote-attack-surfaces-45325",
     "briefing_text": "Ver el briefing de Black Hat",
     "vuln_list": {
@@ -78,6 +78,6 @@
         "score": "Puntuación CVSS"
       }
     },
-    "research_details": "SecureBoot, diseñado para proteger contra la manipulación a nivel de firmware, ha sido considerado durante mucho tiempo como una superficie de ataque 'solo local'. Esta investigación rompe esa suposición, exponiendo fallas sistémicas que permiten la explotación remota de SecureBoot, culminando en RCE pre-autenticación en sistemas completamente parcheados. Con 31 CVEs descubiertos y corregidos en la implementación de SecureBoot de Microsoft, revelamos cómo los atacantes pueden utilizar componentes del cargador de arranque (pilas de red, registros BCD, sistemas de archivos) para eludir las garantías críticas de seguridad."
+    "research_details": "SecureBoot, diseñado para proteger contra la manipulación a nivel de firmware, ha sido considerado durante mucho tiempo como una superficie de ataque 'solo local'. Esta investigación rompe esa suposición, exponiendo fallas sistémicas que permiten la explotación remota de SecureBoot, culminando en RCE pre-autenticación en sistemas completamente parcheados. Con 32 CVEs descubiertos y corregidos en la implementación de SecureBoot de Microsoft, revelamos cómo los atacantes pueden utilizar componentes del cargador de arranque (pilas de red, registros BCD, sistemas de archivos) para eludir las garantías críticas de seguridad."
   }
 } 
